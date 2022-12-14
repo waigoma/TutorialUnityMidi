@@ -48,13 +48,13 @@ namespace TutorialUnityMidi
 
                 _ports.Add(IsRealPort(nm) ? new MidiInPort(i)
                     {
-                        OnNoteOn = (byte channel, byte note, byte velocity) =>
+                        OnNoteOn = (channel, note, velocity) =>
                             Debug.Log($"{nm} [{channel}] On {note} ({velocity})"),
 
-                        OnNoteOff = (byte channel, byte note) =>
+                        OnNoteOff = (channel, note) =>
                             Debug.Log($"{nm} [{channel}] Off {note})"),
 
-                        OnControlChange = (byte channel, byte number, byte value) =>
+                        OnControlChange = (channel, number, value) =>
                             Debug.Log($"{nm} [{channel}] CC {number} ({value})")
                     } : null
                 );
